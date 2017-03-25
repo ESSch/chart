@@ -1,18 +1,46 @@
 <!DOCTYPE>
 <html>
+<head>
+	<meta charset="utf-8">
+	<script src="vue.js"></script>
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+</head>
 <body>
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-
-	<div id="app">
-	  <p>{{ message }}</p>
-	</div>
+	<header id="header">
+		<input
+			type="button"  
+			v-for="(value, key) in btns"
+			v-on:click="myFunc(key)" 
+			v-bind:value="value" 
+			v-bind:class="{red: current == key}"
+		>
+		{{ current }}
+	</header>
+	<article></article>
+	<footer></footer>
 	<script>
-		new Vue({
-		  el: '#app',
-		  data: {
-		    message: 'Hello Vue.js!'
-		  }
-		})
+		var mv = new Vue({
+			el: 'header',
+			data: {
+				btns: {
+					hour: 'Час', 
+					date: "День", 
+					veek: "Неделя", 
+					month: "Месяц", 
+					year: "Год"
+				},
+				current: "hour"
+			},
+			methods: {
+				myFunc: function (mes) {
+					mv.current = mes;	
+				}	
+			}
+		});
 	</script>
 </body>
 </html>
