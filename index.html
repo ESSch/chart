@@ -5,14 +5,20 @@
 	<script src="vue.js"></script>
 	<script src="Chart.js"></script>
 	<style>
+		[v-cloak] { display: none }
 		.red {
 			border: 1px solid red;
 		}
 	</style>
+	<!-- material -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-material@0.7.1/dist/vue-material.css">
+	<script src="https://unpkg.com/vue-material@0.7.1"></script>
 </head>
 <body>
 	<header></header>
-	<article>
+	<article v-cloak>
 		<my-header></my-header>
 		<my-chart></my-chart>
 		<my-footer></my-footer>
@@ -20,6 +26,7 @@
 	<footer>
 	</footer>
 </body>
+<!-- my -->
 <script src="components/header.js"></script>
 <script src="components/chart.js"></script>
 <script src="components/footer.js"></script>

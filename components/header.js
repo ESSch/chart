@@ -1,15 +1,16 @@
 Vue.component('my-header', {
 	template: `<div>
-		Детализация:
-		<input
-			type="button"  
+		<md-button 
+			class="md-raised md-primary"
 			v-for="(value, key, index) in btns"
-			v-on:click="current = key"
-			v-bind:value="value" 
+			v-on:click.native="current = key"
 			v-bind:class="{red: current == key}"
 			v-bind:disabled="index > layer || current == key"
-		>
-		<input v-model="layer" />
+		>{{value}}</md-button>
+		<md-input-container>
+			<label>Макс. уровень детализации</label>
+			<md-input v-model="layer"></md-input>
+		</md-input-container>
 		{{ current }}
 	</div>`,
 	data: function () {
@@ -21,8 +22,8 @@ Vue.component('my-header', {
 				month: "Месяц", 
 				year: "Год"
 			},
-			layer: 4,
-			current: "hour"
+			layer: 2,
+			current: "hour",
 		};
 	},
 });

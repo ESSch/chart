@@ -7,8 +7,14 @@ function formatDate(date) {
 
 Vue.component('my-footer', {
 	template: `<div>
-		<input v-model="dbegin" />
-		<input v-model="dend" />
+		<md-input-container>
+			<label>Начальная дата</label>
+			<md-input v-model="dbegin"></md-input>
+		</md-input-container>
+		<md-input-container>
+			<label>Конечная дата</label>
+			<md-input v-model="dend"></md-input>
+		</md-input-container>
 		Срок: {{ dbegin }} - {{ dend }} = {{ d }} часов
 	</div>`,
 	data: function () {
