@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<script src="vue.js"></script>
+	<script src="Chart.js"></script>
 	<style>
 		.red {
 			border: 1px solid red;
@@ -10,25 +11,17 @@
 	</style>
 </head>
 <body>
-	<header id="header">
-		Детализация:
-		<input
-			type="button"  
-			v-for="(value, key, index) in btns"
-			v-on:click="myFunc(key)" 
-			v-bind:value="value" 
-			v-bind:class="{red: current == key}"
-			v-bind:disabled="index > layer || current == key"
-		>
-		<input v-model="layer" />
-		{{ current }}
-	</header>
-	<article></article>
+	<header></header>
+	<article>
+		<my-header></my-header>
+		<my-chart></my-chart>
+		<my-footer></my-footer>
+	</article>
 	<footer>
-		<input v-model="dbegin" />
-		<input v-model="dend" />
-		Срок: {{ dbegin }} - {{ dend }} = {{ d }} часов
 	</footer>
-	<script src="script.js"></script>
 </body>
+<script src="components/header.js"></script>
+<script src="components/chart.js"></script>
+<script src="components/footer.js"></script>
+<script src="script.js"></script>
 </html>

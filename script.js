@@ -1,37 +1,25 @@
-let mv = new Vue({
-	el: 'header',
-	data: {
-		btns: {
-			hour: 'Час', 
-			date: "День", 
-			veek: "Неделя", 
-			month: "Месяц", 
-			year: "Год"
-		},
-		layer: 4,
-		current: "hour"
-	},
-	methods: {
-		myFunc: function (mes) {
-			mv.current = mes;	
-		}	
-	}
-});
+new Vue({
+  el: 'article'
+})
 
-let date1 = new Date();
-let date2 = new Date();
-date2.setHours(date2.getHours() - 1);
-function formatDate(date) {
-	return date1.toLocaleString('ru', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric'});
-}
-
-let footer = new Vue({
-	el: 'footer',
-	data: {
-		dbegin: formatDate(date1),
-		dend: formatDate(date2),
-		d: (date1 - date2) / 3600 / 1000,
-	},
-	methods: {
-	}
+var ctx = document.getElementById("myChart");
+let myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 });
